@@ -112,17 +112,47 @@ function createDemoScene(scene) {
 	mur2.visibility = 0;
 	mur2.checkCollisions = true;
 
-	var mur3 = BABYLON.Mesh.CreatePlane("mur3", 50, scene);
-	mur3.rotation.z = Math.PI / 2;
-	mur3.position.z = 25;
-	mur3.visibility = 0;
-	mur3.checkCollisions = true;
+	var mur31Salle1 = BABYLON.Mesh.CreatePlane("mur31Salle1", 20, scene);
+	mur31Salle1.rotation.z = Math.PI / 2;
+	mur31Salle1.position.z = 25;
+	mur31Salle1.position.x = -15;
+	mur31Salle1.visibility = 0;
+	mur31Salle1.checkCollisions = true;
+
+	var mur32Salle1 = BABYLON.Mesh.CreatePlane("mur32Salle1", 20, scene);
+	mur32Salle1.rotation.z = Math.PI / 2;
+	mur32Salle1.position.z = 25;
+	mur32Salle1.position.x = 15;
+	mur32Salle1.visibility = 0;
+	mur32Salle1.checkCollisions = true;
 
 	var mur4 = BABYLON.Mesh.CreatePlane("mur4", 50, scene);
 	mur4.rotation.x = Math.PI;
 	mur4.position.z = -25;
 	mur4.visibility = 0;
 	mur4.checkCollisions = true;
+
+	/*--------------COULOIR 1--------------------*/
+
+	var groundCouloir1 = BABYLON.Mesh.CreateGround("groundCouloir1", 10, 20, 2, scene);
+	groundCouloir1.material = new BABYLON.StandardMaterial("gMaterial", scene);
+	groundCouloir1.material.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	groundCouloir1.position.z = 35;
+	groundCouloir1.checkCollisions = true;
+
+	var mur1Couloir1 = BABYLON.Mesh.CreatePlane("mur1Couloir1", 20, scene);
+	mur1Couloir1.rotation.y = Math.PI / 2;
+	mur1Couloir1.position.z = 35;
+	mur1Couloir1.position.x = 5;
+	mur1Couloir1.visibility = 0;
+	mur1Couloir1.checkCollisions = true;
+
+	var mur2Couloir1 = BABYLON.Mesh.CreatePlane("mur2Couloir1", 20, scene);
+	mur2Couloir1.rotation.y = -(Math.PI / 2);
+	mur2Couloir1.position.z = 35;
+	mur2Couloir1.position.x = -5;
+	mur2Couloir1.visibility = 0;
+	mur2Couloir1.checkCollisions = true;
 
 	/*-----------------SALLE 2----------------------------------*/
 
