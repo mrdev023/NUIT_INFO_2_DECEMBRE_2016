@@ -91,11 +91,19 @@ function createSkybox(scene) {
 
 
 function createDemoScene(scene) {
+	
 	// Cr�ation d'un sol
+
+	var groundMaterial = new BABYLON.StandardMaterial("ground", scene);
+	groundMaterial.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	groundMaterial.diffuseTexture.uScale = 6;
+	groundMaterial.diffuseTexture.vScale = 6;
+	groundMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
 	var ground = BABYLON.Mesh.CreatePlane("ground", 50, scene);
 	ground.rotation.x = Math.PI / 2;
 	ground.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	ground.material.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	ground.material = groundMaterial;
 	ground.checkCollisions = true;
 
 	var mur1 = BABYLON.Mesh.CreatePlane("mur1", 50, scene);
@@ -136,7 +144,7 @@ function createDemoScene(scene) {
 
 	var groundCouloir1 = BABYLON.Mesh.CreateGround("groundCouloir1", 10, 20, 2, scene);
 	groundCouloir1.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundCouloir1.material.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	groundCouloir1.material = groundMaterial;
 	groundCouloir1.position.z = 35;
 	groundCouloir1.checkCollisions = true;
 
@@ -160,7 +168,7 @@ function createDemoScene(scene) {
 	groundSalle2.rotation.x = Math.PI / 2;
 	groundSalle2.position.z = 70;
 	groundSalle2.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundSalle2.material.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	groundSalle2.material = groundMaterial;
 	groundSalle2.checkCollisions = true;
 
 	var mur11Salle2 = BABYLON.Mesh.CreatePlane("mur11Salle2", 20, scene);
@@ -211,7 +219,7 @@ function createDemoScene(scene) {
 
 	var groundCouloir2 = BABYLON.Mesh.CreateGround("groundCouloir2", 10, 20, 2, scene);
 	groundCouloir2.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundCouloir2.material.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	groundCouloir2.material = groundMaterial;
 	groundCouloir2.position.z = 105;
 	groundCouloir2.checkCollisions = true;
 
@@ -235,7 +243,7 @@ function createDemoScene(scene) {
 	groundSalle3.rotation.x = Math.PI / 2;
 	groundSalle3.position.z = 140;
 	groundSalle3.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundSalle3.material.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
+	groundSalle3.material = groundMaterial;	
 	groundSalle3.checkCollisions = true;
 
 	var mur11Salle3 = BABYLON.Mesh.CreatePlane("mur11Salle3", 20, scene);
