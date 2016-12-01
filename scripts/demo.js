@@ -37,8 +37,6 @@ function runDemo(canvasId) {
 	light.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
 	light.intensity = 1.5;
 
-<<<<<<< HEAD
-=======
 	var light2 = new BABYLON.PointLight("DirLight", new BABYLON.Vector3(0, 10, 80), scene);
 	light2.diffuse = new BABYLON.Color3(1, 1, 1);
 	light2.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
@@ -49,7 +47,6 @@ function runDemo(canvasId) {
 	light3.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
 	light3.intensity = 1.5;
 
->>>>>>> origin/master
 	// On ajoute une skybox
 	createSkybox(scene);
 
@@ -127,8 +124,6 @@ function createDemoScene(scene) {
 	mur4.visibility = 0;
 	mur4.checkCollisions = true;
 
-<<<<<<< HEAD
-=======
 	/*-----------------SALLE 2----------------------------------*/
 
 	var groundSalle2 = BABYLON.Mesh.CreatePlane("groundSalle2", 50, scene);
@@ -250,7 +245,6 @@ function createDemoScene(scene) {
 	mur4Salle3.visibility = 0;
 	mur4Salle3.checkCollisions = true;
 
->>>>>>> origin/master
 	// Et quelques cubes...
 	var boxMaterial = new BABYLON.StandardMaterial("bMaterial", scene);
 	boxMaterial.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
