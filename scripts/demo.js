@@ -67,11 +67,12 @@ function runDemo(canvasId) {
 }
 
 function createObj(loader,scene){
-	var batman = loader.addMeshTask("bunny", "", "assets/", "bunny.obj");
+	var batman = loader.addMeshTask("bunny", "", "assets/", "Bane_3.obj");
 	batman.onSuccess = function(t){
-		t.loadedMeshes.forEach(function(m) {
+		t.loadedMeshes.forEach(function(m) {//m = model
             m.position.x = 10;
-						m.scale = 100;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
         });
 	};
 }
@@ -91,7 +92,7 @@ function createSkybox(scene) {
 
 
 function createDemoScene(scene) {
-	
+
 	// Cr�ation d'un sol
 
 	var groundMaterial = new BABYLON.StandardMaterial("ground", scene);
@@ -247,7 +248,7 @@ function createDemoScene(scene) {
 	groundSalle3.rotation.x = Math.PI / 2;
 	groundSalle3.position.z = 140;
 	groundSalle3.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundSalle3.material = groundMaterial;	
+	groundSalle3.material = groundMaterial;
 	groundSalle3.checkCollisions = true;
 
 	var mur11Salle3 = BABYLON.Mesh.CreatePlane("mur11Salle3", 20, scene);
