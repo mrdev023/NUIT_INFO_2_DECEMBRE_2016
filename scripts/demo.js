@@ -142,6 +142,9 @@ function createDemoScene(scene) {
 
 	/*--------------COULOIR 1--------------------*/
 
+	var textCouloir1 = new BABYLON.StandardMaterial("texture3", scene);
+    textCouloir1.diffuseTexture = new BABYLON.Texture("images/textCouloir1.png", scene);
+
 	var groundCouloir1 = BABYLON.Mesh.CreateGround("groundCouloir1", 10, 20, 2, scene);
 	groundCouloir1.material = new BABYLON.StandardMaterial("gMaterial", scene);
 	groundCouloir1.material = groundMaterial;
@@ -149,10 +152,11 @@ function createDemoScene(scene) {
 	groundCouloir1.checkCollisions = true;
 
 	var mur1Couloir1 = BABYLON.Mesh.CreatePlane("mur1Couloir1", 20, scene);
+	mur1Couloir1.material = textCouloir1;
 	mur1Couloir1.rotation.y = Math.PI / 2;
 	mur1Couloir1.position.z = 35;
 	mur1Couloir1.position.x = 5;
-	mur1Couloir1.visibility = 0;
+	mur1Couloir1.visibility = 1;
 	mur1Couloir1.checkCollisions = true;
 
 	var mur2Couloir1 = BABYLON.Mesh.CreatePlane("mur2Couloir1", 20, scene);
