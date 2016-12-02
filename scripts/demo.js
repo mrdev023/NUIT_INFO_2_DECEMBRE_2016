@@ -360,12 +360,16 @@ function createDemoScene(scene) {
 	ground.material = groundMaterial1;
 	ground.checkCollisions = true;
 
+	var textSalle1 = new BABYLON.StandardMaterial("texture4", scene);
+	textSalle1.diffuseTexture = new BABYLON.Texture("images/text.png", scene);
+	textSalle1.specularColor = new BABYLON.Color3(0, 0, 0);
+
 	var mur1 = BABYLON.Mesh.CreatePlane("mur1", 50, scene);
 	mur1.rotation.y = Math.PI / 2;
 	mur1.position.y = -15;
 	mur1.position.x = 25;
 	mur1.visibility = 1;
-	mur1.material = wall;
+	mur1.material = textSalle1;
 	mur1.checkCollisions = true;
 
 	var mur2 = BABYLON.Mesh.CreatePlane("mur2", 50, scene);
