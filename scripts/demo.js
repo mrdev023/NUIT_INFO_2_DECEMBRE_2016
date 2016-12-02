@@ -16,7 +16,7 @@ function runDemo(canvasId) {
     camera.applyGravity = true;
     camera.checkCollisions = true;
 
-	camera.speed = 1;
+	camera.speed = .1;
 	camera.angularSensibility = 1000;
 
 	camera.keysUp = [90]; // Touche Z
@@ -509,7 +509,7 @@ function createDemoScene(scene) {
 	mur4Salle3.material = wall;
 	mur4Salle3.checkCollisions = true;
 
-	
+
 	var box = new BABYLON.Mesh.CreateBox("crate", 2, scene);
     box.material = new BABYLON.StandardMaterial("Mat", scene);
     box.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
