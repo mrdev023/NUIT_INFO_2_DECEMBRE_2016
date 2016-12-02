@@ -6,7 +6,7 @@ function runDemo(canvasId) {
 
 	// Cr�ation de la sc�ne
 	var scene = new BABYLON.Scene(engine);
-		var loader = new BABYLON.AssetsManager(scene);//Obj loader
+	var loader = new BABYLON.AssetsManager(scene);//Obj loader
 		BABYLON.OBJFileLoader.OPTIMIZE_WITH_UV = true;
     scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
 	scene.collisionsEnabled = true;
@@ -67,14 +67,20 @@ function runDemo(canvasId) {
 }
 
 function createObj(loader,scene){
-	var batman = loader.addMeshTask("bunny", "", "assets/", "Bane_3.obj");
-	batman.onSuccess = function(t){
+	var house = loader.addMeshTask("house", "", "assets/", "house.obj");
+	house.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
-            m.position.x = 10;
+            m.position.x = 20;
+						m.position.y = -2;
+						m.position.z = 20;
 						m.scaling = new BABYLON.Vector3(1, 1, 1);
 						m.checkCollisions = true;
         });
 	};
+	// BABYLON.SceneLoader.ImportMesh("test", "assets/", "house.babylon", scene, function (newMeshes){
+	// 	modele = newMeshes;
+	// 	modele.rotation.x = 10;
+	// });
 }
 
 function createSkybox(scene) {
