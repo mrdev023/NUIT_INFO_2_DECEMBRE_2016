@@ -95,16 +95,19 @@ function createDemoScene(scene) {
 
 	// Cr�ation d'un sol
 
-	var groundMaterial = new BABYLON.StandardMaterial("ground", scene);
-	groundMaterial.diffuseTexture = new BABYLON.Texture("images/ground.png", scene);
-	groundMaterial.diffuseTexture.uScale = 6;
-	groundMaterial.diffuseTexture.vScale = 6;
-	groundMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+	var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+	groundMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+
+	var groundMaterial1 = new BABYLON.StandardMaterial("groundMaterial1", scene);
+	groundMaterial1.diffuseTexture = new BABYLON.Texture("images/groundSable.png", scene);
+	groundMaterial1.diffuseTexture.uScale = 6;
+	groundMaterial1.diffuseTexture.vScale = 6;
+	groundMaterial1.specularColor = new BABYLON.Color3(0, 0, 0);
 
 	var ground = BABYLON.Mesh.CreatePlane("ground", 50, scene);
 	ground.rotation.x = Math.PI / 2;
 	ground.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	ground.material = groundMaterial;
+	ground.material = groundMaterial1;
 	ground.checkCollisions = true;
 
 	var mur1 = BABYLON.Mesh.CreatePlane("mur1", 50, scene);
@@ -175,11 +178,17 @@ function createDemoScene(scene) {
 
 	/*-----------------SALLE 2----------------------------------*/
 
+	var groundMaterial2 = new BABYLON.StandardMaterial("groundMaterial2", scene);
+	groundMaterial2.diffuseTexture = new BABYLON.Texture("images/groundEau.jpg", scene);
+	groundMaterial2.diffuseTexture.uScale = 6;
+	groundMaterial2.diffuseTexture.vScale = 6;
+	groundMaterial2.specularColor = new BABYLON.Color3(0, 0, 0);
+
 	var groundSalle2 = BABYLON.Mesh.CreatePlane("groundSalle2", 50, scene);
 	groundSalle2.rotation.x = Math.PI / 2;
 	groundSalle2.position.z = 70;
 	groundSalle2.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundSalle2.material = groundMaterial;
+	groundSalle2.material = groundMaterial2;
 	groundSalle2.checkCollisions = true;
 
 	var mur11Salle2 = BABYLON.Mesh.CreatePlane("mur11Salle2", 20, scene);
@@ -256,11 +265,17 @@ function createDemoScene(scene) {
 
 	/*----------------SALLE 3-------------------------*/
 
+	var groundMaterial3 = new BABYLON.StandardMaterial("groundMaterial3", scene);
+	groundMaterial3.diffuseTexture = new BABYLON.Texture("images/groundTerre.png", scene);
+	groundMaterial3.diffuseTexture.uScale = 6;
+	groundMaterial3.diffuseTexture.vScale = 6;
+	groundMaterial3.specularColor = new BABYLON.Color3(0, 0, 0);
+
 	var groundSalle3 = BABYLON.Mesh.CreatePlane("groundSalle3", 50, scene);
 	groundSalle3.rotation.x = Math.PI / 2;
 	groundSalle3.position.z = 140;
 	groundSalle3.material = new BABYLON.StandardMaterial("gMaterial", scene);
-	groundSalle3.material = groundMaterial;
+	groundSalle3.material = groundMaterial3;
 	groundSalle3.checkCollisions = true;
 
 	var mur11Salle3 = BABYLON.Mesh.CreatePlane("mur11Salle3", 20, scene);
