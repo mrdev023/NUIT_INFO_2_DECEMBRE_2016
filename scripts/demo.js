@@ -67,11 +67,12 @@ function runDemo(canvasId) {
 }
 
 function createObj(loader,scene){
-	var batman = loader.addMeshTask("bunny", "", "assets/", "bunny.obj");
+	var batman = loader.addMeshTask("bunny", "", "assets/humbird/", "humbird.obj");
 	batman.onSuccess = function(t){
-		t.loadedMeshes.forEach(function(m) {
+		t.loadedMeshes.forEach(function(m) {//m = model
             m.position.x = 10;
-						m.scale = 100;
+						m.scaling = new BABYLON.Vector3(20, 20, 20);
+						m.checkCollisions = true;
         });
 	};
 }
