@@ -96,6 +96,32 @@ function createObj(loader,scene){
         });
 	};
 
+	var house3 = loader.addMeshTask("house2", "", "assets/", "house.obj");
+	house3.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 10;
+						m.position.y = -5;
+						m.material = stone;
+						m.position.z = 130;
+						m.position.x = 10;
+						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.checkCollisions = true;
+        });
+	};
+
+	var house3 = loader.addMeshTask("house2", "", "assets/", "house.obj");
+	house3.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 10;
+						m.position.y = -5;
+						m.material = stone;
+						m.position.z = 150;
+						m.position.x = -10;
+						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.checkCollisions = true;
+        });
+	};
+
 	var boat1 = loader.addMeshTask("boat1", "", "assets/", "Cannoe.obj");
 	boat1.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
@@ -390,4 +416,38 @@ function createDemoScene(scene) {
 	mur4Salle3.material = wall;
 	mur4Salle3.checkCollisions = true;
 
+	
+	var box = new BABYLON.Mesh.CreateBox("crate", 2, scene);
+    box.material = new BABYLON.StandardMaterial("Mat", scene);
+    box.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
+    box.position = new BABYLON.Vector3(20, 1, 140);
+
+	var box2 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
+    box2.material = new BABYLON.StandardMaterial("Mat", scene);
+    box2.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
+    box2.material.diffuseTexture.hasAlpha = true;
+    box2.position = new BABYLON.Vector3(10, 1, 140);
+
+	var box3 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
+    box3.material = new BABYLON.StandardMaterial("Mat", scene);
+    box3.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
+    box3.material.diffuseTexture.hasAlpha = true;
+    box3.position = new BABYLON.Vector3(20, 1, 130);
+
+	var box4 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
+    box4.material = new BABYLON.StandardMaterial("Mat", scene);
+    box4.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
+    box4.material.diffuseTexture.hasAlpha = true;
+    box4.position = new BABYLON.Vector3(-20, 1, 130);
+
+	var box5 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
+    box5.material = new BABYLON.StandardMaterial("Mat", scene);
+    box5.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
+    box5.material.diffuseTexture.hasAlpha = true;
+    box5.position = new BABYLON.Vector3(-30, 1, 150);
+
+	var box6 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
+    box6.material = new BABYLON.StandardMaterial("Mat", scene);
+    box6.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
+    box6.position = new BABYLON.Vector3(0, 1, 120);
 }
