@@ -16,7 +16,7 @@ function runDemo(canvasId) {
     camera.applyGravity = true;
     camera.checkCollisions = true;
 
-	camera.speed = .1;
+	camera.speed = 1;
 	camera.angularSensibility = 1000;
 
 	camera.keysUp = [90]; // Touche Z
@@ -25,27 +25,22 @@ function runDemo(canvasId) {
 	camera.keysRight = [68]; // Touche D;
 	scene.activeCamera.attachControl(canvas);
 
-	if(camera.position.x>2){
-		camera.position.x=2;
-	}else if(camera.position.x<-2){
-		camera.position.x=-2;
-	}
 
 	// Ajout d'une lumi�re
 	var light = new BABYLON.PointLight("DirLight", new BABYLON.Vector3(0, 10, 0), scene);
 	light.diffuse = new BABYLON.Color3(1, 1, 1);
 	light.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
-	light.intensity = 1.5;
+	light.intensity = 1.0;
 
 	var light2 = new BABYLON.PointLight("DirLight", new BABYLON.Vector3(0, 10, 80), scene);
 	light2.diffuse = new BABYLON.Color3(1, 1, 1);
 	light2.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
-	light2.intensity = 1.5;
+	light2.intensity = 1.0;
 
 	var light3 = new BABYLON.PointLight("DirLight", new BABYLON.Vector3(0, 10, 160), scene);
 	light3.diffuse = new BABYLON.Color3(1, 1, 1);
 	light3.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
-	light3.intensity = 1.5;
+	light3.intensity = 1.0;
 
 	// On ajoute une skybox
 	createSkybox(scene);
@@ -102,28 +97,69 @@ function createObj(loader,scene){
 		f2.position = new BABYLON.Vector3(-10, 0.0, -5);
 			createParticle(f2,scene);
 
-	var house3 = loader.addMeshTask("house2", "", "assets/", "house.obj");
-	house3.onSuccess = function(t){
+	var tent1 = loader.addMeshTask("tent1", "", "assets/", "Tent_1.obj");
+	tent1.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
             m.position.x = 10;
-						m.position.y = -5;
+						m.position.y = 0;
 						m.material = stone;
 						m.position.z = 130;
 						m.position.x = 10;
-						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
 						m.checkCollisions = true;
         });
 	};
 
-	var house3 = loader.addMeshTask("house2", "", "assets/", "house.obj");
-	house3.onSuccess = function(t){
+	var tent2 = loader.addMeshTask("tent2", "", "assets/", "Tent_1.obj");
+	tent2.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
             m.position.x = 10;
-						m.position.y = -5;
-						m.material = stone;
+						m.position.y = 0;
+						m.material = wood;
 						m.position.z = 150;
 						m.position.x = -10;
-						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.rotation.y = Math.PI / 2;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
+        });
+	};
+
+	var tent3 = loader.addMeshTask("tent3", "", "assets/", "Tent_1.obj");
+	tent3.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 10;
+						m.position.y = 0;
+						m.material = wood;
+						m.position.z = 150;
+						m.position.x = 5;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
+        });
+	};
+
+	var tent4 = loader.addMeshTask("tent4", "", "assets/", "Tent_1.obj");
+	tent4.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 10;
+						m.position.y = 0;
+						m.material = wood;
+						m.position.z = 130;
+						m.position.x = -10;
+						m.rotation.y = Math.PI / 2;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
+        });
+	};
+
+	var noye1 = loader.addMeshTask("noye1", "", "assets/", "FinalBaseMesh.obj");
+	noye1.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            			m.position.x = 10;
+						m.position.y = 0;
+						m.position.z = 70;
+						m.position.x = -10;
+						m.rotation.y = Math.PI / 2;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
 						m.checkCollisions = true;
         });
 	};
@@ -515,12 +551,6 @@ function createDemoScene(scene) {
     box.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
     box.position = new BABYLON.Vector3(20, 1, 140);
 
-	var box2 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
-    box2.material = new BABYLON.StandardMaterial("Mat", scene);
-    box2.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
-    box2.material.diffuseTexture.hasAlpha = true;
-    box2.position = new BABYLON.Vector3(10, 1, 140);
-
 	var box3 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
     box3.material = new BABYLON.StandardMaterial("Mat", scene);
     box3.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
@@ -531,7 +561,7 @@ function createDemoScene(scene) {
     box4.material = new BABYLON.StandardMaterial("Mat", scene);
     box4.material.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
     box4.material.diffuseTexture.hasAlpha = true;
-    box4.position = new BABYLON.Vector3(-20, 1, 130);
+    box4.position = new BABYLON.Vector3(-15, 1, 145);
 
 	var box5 = new BABYLON.Mesh.CreateBox("crate", 2, scene);
     box5.material = new BABYLON.StandardMaterial("Mat", scene);
