@@ -151,14 +151,51 @@ function createObj(loader,scene){
         });
 	};
 
-	var noye1 = loader.addMeshTask("noye1", "", "assets/", "FinalBaseMesh.obj");
+	var noye1 = loader.addMeshTask("noye1", "", "assets/", "generic_male_02.obj");
 	noye1.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
             			m.position.x = 10;
-						m.position.y = 0;
+						m.position.y = -3;
 						m.position.z = 70;
-						m.position.x = -10;
+						m.position.x = 1;
 						m.rotation.y = Math.PI / 2;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
+        });
+	};
+
+	var noye2 = loader.addMeshTask("noye2", "", "assets/", "generic_male_02.obj");
+	noye2.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            			m.position.x = 10;
+						m.position.y = -3;
+						m.position.z = 60;
+						m.position.x = 5;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
+        });
+	};
+
+	var migrant1 = loader.addMeshTask("migrant1", "", "assets/", "generic_male_02.obj");
+	migrant1.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            			m.position.x = 10;
+						m.position.y = 0;
+						m.position.z = 130;
+						m.position.x = 1;
+						m.rotation.y = Math.PI / 2;
+						m.scaling = new BABYLON.Vector3(1, 1, 1);
+						m.checkCollisions = true;
+        });
+	};
+
+	var migrant2 = loader.addMeshTask("migrant2", "", "assets/", "generic_male_02.obj");
+	migrant2.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            			m.position.x = 10;
+						m.position.y = 0;
+						m.position.z = 135;
+						m.position.x = 5;
 						m.scaling = new BABYLON.Vector3(1, 1, 1);
 						m.checkCollisions = true;
         });
