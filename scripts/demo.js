@@ -67,13 +67,27 @@ function runDemo(canvasId) {
 }
 
 function createObj(loader,scene){
-	var house = loader.addMeshTask("house", "", "assets/", "house.obj");
+	var stone = new BABYLON.StandardMaterial("stone", scene);
+	stone.diffuseTexture = new BABYLON.Texture("images/tileable9.png", scene);
+	var house = loader.addMeshTask("house1", "", "assets/", "house.obj");
 	house.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
-            m.position.x = 20;
-						m.position.y = -2;
-						m.position.z = 20;
-						m.scaling = new BABYLON.Vector3(1, 1, 1);
+            m.position.x = -10;
+						m.position.y = -5;
+						m.position.z = -10;
+						m.material = stone;
+						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.checkCollisions = true;
+        });
+	};
+	var house2 = loader.addMeshTask("house2", "", "assets/", "house.obj");
+	house2.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 10;
+						m.position.y = -5;
+						m.material = stone;
+						m.position.z = 10;
+						m.scaling = new BABYLON.Vector3(3, 3, 3);
 						m.checkCollisions = true;
         });
 	};
@@ -321,23 +335,4 @@ function createDemoScene(scene) {
 	mur4Salle3.visibility = 0;
 	mur4Salle3.checkCollisions = true;
 
-	// Et quelques cubes...
-	var boxMaterial = new BABYLON.StandardMaterial("bMaterial", scene);
-	boxMaterial.diffuseTexture = new BABYLON.Texture("images/box.png", scene);
-
-	var positions = [
-		{ x: -15, z: 15 },
-		{ x: -15, z: -15 },
-		{ x: 15, z: 15 },
-		{ x: 15, z: -15 }
-	];
-
-	var cubeSize = 2.5;
-
-	for (var i = 0; i < 4; i++) {
-		var box = BABYLON.Mesh.CreateBox("box1", cubeSize, scene);
-		box.position = new BABYLON.Vector3(positions[i].x, cubeSize / 2, positions[i].z);
-		box.material = boxMaterial;
-		box.checkCollisions = true;
-	}
 }
