@@ -69,6 +69,10 @@ function runDemo(canvasId) {
 function createObj(loader,scene){
 	var stone = new BABYLON.StandardMaterial("stone", scene);
 	stone.diffuseTexture = new BABYLON.Texture("images/tileable9.png", scene);
+
+	var wood = new BABYLON.StandardMaterial("wood", scene);
+	wood.diffuseTexture = new BABYLON.Texture("images/wood.jpg", scene);
+
 	var house = loader.addMeshTask("house1", "", "assets/", "house.obj");
 	house.onSuccess = function(t){
 		t.loadedMeshes.forEach(function(m) {//m = model
@@ -87,6 +91,19 @@ function createObj(loader,scene){
 						m.position.y = -5;
 						m.material = stone;
 						m.position.z = 10;
+						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.checkCollisions = true;
+        });
+	};
+
+	var boat1 = loader.addMeshTask("boat1", "", "assets/", "Cannoe.obj");
+	boat1.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 0;
+						m.position.y = -11;
+						m.material = wood;
+						m.position.z = 60;
+						m.rotation.z = Math.PI/16;
 						m.scaling = new BABYLON.Vector3(3, 3, 3);
 						m.checkCollisions = true;
         });
