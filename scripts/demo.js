@@ -108,6 +108,21 @@ function createObj(loader,scene){
 						m.checkCollisions = true;
         });
 	};
+
+	var boat2 = loader.addMeshTask("boat1", "", "assets/", "Cannoe.obj");
+	boat2.onSuccess = function(t){
+		t.loadedMeshes.forEach(function(m) {//m = model
+            m.position.x = 0;
+						m.position.y = -11;
+						m.position.x = -10;
+						m.material = wood;
+						m.position.z = 80;
+						m.rotation.z = Math.PI/16;
+						m.rotation.y = Math.PI / 2;
+						m.scaling = new BABYLON.Vector3(3, 3, 3);
+						m.checkCollisions = true;
+        });
+	};
 	// BABYLON.SceneLoader.ImportMesh("test", "assets/", "house.babylon", scene, function (newMeshes){
 	// 	modele = newMeshes;
 	// 	modele.rotation.x = 10;
